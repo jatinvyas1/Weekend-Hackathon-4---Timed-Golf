@@ -17,6 +17,9 @@ class Timer extends React.Component {
     if (!this.state.start) {
       return;
     }
+    if (this.state.x === 250 && this.state.y === 250) {
+      return;
+    }
     if (event.keyCode === 37) {
       this.setState({ y: this.state.y - 5 });
     }
