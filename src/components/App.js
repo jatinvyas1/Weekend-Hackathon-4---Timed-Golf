@@ -11,9 +11,9 @@ class Timer extends React.Component {
       ballPosition: { top: "0px", left: "0px" }
     };
     this.buttonClickHandler = this.buttonClickHandler.bind(this);
-    // this.shiftBall = this.shiftBall.bind(this);
+    this.shiftBall = this.shiftBall.bind(this);
   }
-
+  shiftBall() {}
   buttonClickHandler() {
     this.interval = setInterval(() => {
       this.setState({ time: this.state.time + 1 });
@@ -35,12 +35,14 @@ class Timer extends React.Component {
 
         <div className="ball" style={this.state.ballPosition}></div>
         <div className="hole"></div>
-        <button
-          className="start ballProvider"
-          onClick={this.buttonClickHandler}
-        >
-          Start
-        </button>
+        {!this.state.start && (
+          <button
+            className="start ballProvider"
+            onClick={this.buttonClickHandler}
+          >
+            Start
+          </button>
+        )}
       </>
     );
   }
